@@ -1,0 +1,116 @@
+/* * {
+    background-color:bisque;
+    margin: 0;
+    padding: 0;
+} */
+/* .formulario-contenedor{
+  
+    justify-content: center;
+ 
+    
+}
+
+.formulario-contenido{
+    justify-content: center;
+    align-items: center;
+    display: block;
+    margin: 4%;
+    padding: 30px 10%;
+    background-color:cornflowerblue;
+    border-radius: 30px;
+  
+}
+
+.formulario-contenido label{
+
+   
+    display: flex;
+    padding: 0px 20px;
+    margin: 0;
+    padding: .34%;
+    background-color:blue;
+    
+}
+
+.formulario-contenido input{
+    background-color: brown;
+    display: block;
+    
+}
+
+.formulario-contenido button{
+  border-radius: 3px;
+} */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Fredoka:wght@300;400&family=Roboto:wght@500&display=swap');
+
+
+.form-login {
+
+    width: 400px;
+    /* height: 340px; */
+    background: rgba(38, 58, 66, 0.8);
+    margin: auto;
+    margin-top: 100px;
+    padding: 20px 30px;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    
+
+  }
+  
+  .form-login h2 {
+    margin: 0;
+    text-align: center;
+    height: 40px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid;
+    font-size: 20px;
+    align-items: center;
+  }
+  
+  .controls {  
+    border-radius: 12px;
+    width: 22em;
+    height: 2.5em;
+    border: 1px solid #000000;
+    margin-bottom: 7%;
+    padding: 11px 10px;
+    background: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .buttons {
+    padding: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: .9em;
+    background: rgba(22, 255, 224, 0.8);
+    border: none;
+    color: BLACK;
+    border-radius: 10px;
+    font-family:'Roboto';
+    
+}
+
+/* ESTILOS PARA LETRAS */
+
+.titulo{
+    font-family: Fjalla One;
+}
+
+ .labels{
+     align-content: center;
+     margin-bottom: 10px;
+     font-family: Fredoka;
+ }
+  
+  
+.campos-cont{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;   
+    align-items: center;
+}

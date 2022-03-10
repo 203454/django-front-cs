@@ -1,12 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import ReactDOM from 'react-dom'; 
+import Rutas from './pages/Rutas';
 import reportWebVitals from './reportWebVitals';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    
+    {/* Componentes expotados al inicio de la pagina */}
+    <Rutas/>
+
+  
   </React.StrictMode>,
   document.getElementById('root')
 );

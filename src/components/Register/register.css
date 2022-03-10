@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Fredoka:wght@300;400&family=Roboto:wght@500&display=swap');
+
+
+.form-register {
+
+    width: 400px;
+    /* height: 340px; */
+    background: rgba(38, 58, 66, 0.8);
+    margin: auto;
+    margin-top: 30px;
+    padding: 20px 30px;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    
+
+  }
+  
+  .form-register h2 {
+    margin: 0;
+    text-align: center;
+    height: 40px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid;
+    font-size: 20px;
+    align-items: center;
+  }
+  
+  .controls {  
+    border-radius: 12px;
+    width: 22em;
+    height: 2.5em;
+    border: 1px solid #000000;
+    margin-bottom: 7%;
+    padding: 11px 10px;
+    background: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .buttons {
+    padding: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: .9em;
+    background: rgba(22, 255, 224, 0.8);
+    border: none;
+    color: BLACK;
+    border-radius: 10px;
+    font-family:'Roboto';
+    
+}
+
+/* ESTILOS PARA LETRAS */
+
+.titulo{
+    font-family: Fjalla One;
+}
+
+ .labels{
+     align-content: center;
+     margin-bottom: 10px;
+     font-family: Fredoka;
+ }
+  
+  
+.campos-cont{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;   
+    align-items: center;
+}
