@@ -57,3 +57,13 @@
   }
   
   
+.inputfile-2 + label {
+    color: #c39f77;
+    border: 2px solid currentColor;
+}
+
+.inputfile-2:focus + label,
+.inputfile-2.has-focus + label,
+.inputfile-2 + label:hover {
+    color: #9f8465;
+}

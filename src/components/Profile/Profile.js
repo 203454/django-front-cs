@@ -54,30 +54,6 @@ function Profile() {
 
 
 
-  // const consumir_editarprofile = (e) => {
-  //   e.preventDefault();
-  //   var postData = {
-  //     "img_profile": `${user_id}`,
-  //     "user_id": `${img_profile}`,
-  //   }
-
-  //   axios
-  //     .post("http://localhost:8000/api/v1/profile/ver/", postData, {
-  //       Headers: { "Content-Type": "application/json", },
-  //     })
-  //     .then((response) => {
-
-  //       console.log(response);
-
-  //     })
-  //     .catch((error) => {
-  //       alert(error)
-
-
-  //     });
-  // };
-
-  //cibsyni de los datos del usuario
   useEffect(() => {
     axios
       .get("http://localhost:8000/api/v1/profile/data/user/detail/" + localStorage.getItem('user_id'),
@@ -107,22 +83,22 @@ function Profile() {
 
 
 
-  // const consumir_profileUser = (e) => {
-  //   e.preventDefault();
-  //   axios
-  //     .get("http://localhost:8000/api/v1/profile/dataProfile/1", {
-  //       headers: {
-  //         'Authorization': 'Token ' + token,
-  //       },
-  //     })
-  //     .then((response) => {
-  //       console.log(response.data);
+  const consumir_profileUser = (e) => {
+    e.preventDefault();
+    axios
+      .get("http://localhost:8000/api/v1/profile/dataProfile/1", {
+        headers: {
+          'Authorization': 'Token ' + token,
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
 
-  //     })
-  //     .catch((error) => {
-  //       console.log(error)
-  //     });
-  // };
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  };
 
 
   useEffect(() => {

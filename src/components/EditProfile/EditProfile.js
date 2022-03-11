@@ -7,12 +7,12 @@ export default function EditProfile(props) {
 
   let { usuarioPersonalData, usuarioImageData } = props;
 
-
-
   const [username, setUsername] = useState(usuarioPersonalData.username);
   const [email, setEmail] = useState(usuarioPersonalData.email);
   const [first_name, setFirst_name] = useState(usuarioPersonalData.first_name);
   const [last_name, setLast_name] = useState(usuarioPersonalData.last_name);
+
+
   let token = localStorage.getItem('token');
 
   const data = {
@@ -21,6 +21,29 @@ export default function EditProfile(props) {
     'last_name': last_name,
     'email': email
   }
+
+
+  const uploadFile = () => {
+    // e.preventDefault();
+
+    let postData = new FormData();
+
+    postData.append('user_id', localStorage.getItem('user_id'));
+    postData.append('img_profile', document.getElementById('img').files[0]);
+
+    axios.post("http://localhost:8000/api/v1/profile/dataProfile/", postData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        'Authorization': 'Token ' + token,
+      }
+    }).then((response) => {
+      console.log("Aqui esta mal: " + response.data);
+    }).catch((error) => {
+      console.log("Aqui esta mal:mal " + error.data);
+    })
+  }
+
+
 
   const consumir_updateUser = (e) => {
 
@@ -42,8 +65,45 @@ export default function EditProfile(props) {
       });
   }
 
-  const consumir_updateImage = () => {
+  const delete_image = (e) =>{
 
+    axios.delete("http://localhost:8000/api/v1/profile/dataProfile/"+ usuarioImageData.id, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Token ' + token,
+      }
+    }).then((response) => {
+      console.log("Aqui esta mal: " + response.data);
+
+    }).catch((error) => {
+      console.log("Aqui esta mal:mal " + error.data);
+
+    });
+
+  }
+
+  const change_image = (e) => {
+    e.preventDefault();
+
+    let postData = new FormData();
+
+    postData.append('user_id', localStorage.getItem('user_id'));
+    postData.append('img_profile', document.getElementById('img').files[0]);
+
+    // console.log("datos enviados: " + postData.user_id)
+    console.log(usuarioImageData.id)
+    axios.put("http://localhost:8000/api/v1/profile/dataProfile/" + usuarioImageData.id, postData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        'Authorization': 'Token ' + token,
+      }
+    }).then((response) => {
+      console.log("Aqui esta mal: " + response.data);
+
+    }).catch((error) => {
+      console.log("Aqui esta mal:mal " + error.data);
+
+    });
   }
 
   return (
@@ -94,13 +154,18 @@ export default function EditProfile(props) {
           {usuarioImageData.img_profile != null ?
             <div id="div_file">
               <label id="largeFile" for="file">
-                <input type="file" id="file" />
+                <input type="file" id="img" />
+                <button onClick={change_image}>Cambiar foto de perfil</button>
+              </label>
+              <label id="largeFile" for="file">
+              <button onClick={delete_image}>Borrar foto de perfil</button>
               </label>
             </div>
             :
             <div id="div_file">
               <label id="largeFile" for="file">
-                <input type="file" id="file" />
+                <input type="file" id="img" />
+                <button onClick={uploadFile}>Subir una foto</button>
               </label>
             </div>
 
