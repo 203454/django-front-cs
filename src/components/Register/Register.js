@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from "react";
 import { useNavigate, } from "react-router-dom";
 import './register.css'
+import '../bulma.css'
 
 function Register() {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ function Register() {
   const [email, setEmail] = useState("");
   const [first_name, setFirst_name] = useState("");
   const [last_name, setLast_name] = useState("");
-  
+
   var postData = {
     "username": `${username}`,
     "password": `${password}`,
@@ -55,62 +56,66 @@ function Register() {
 
     <div name='contenedor'>
       <form className='form-register'>
-        <div className='campos-cont'>
 
-          <h2 className="titulo">Formulario</h2>
-          <label className='labels' htmlFor='username'>
-            Usuario
-          </label>
-          <input className='controls' type="text" id='username' name='username' value={username} onChange={
-            (e) => setUsername(e.target.value)
-          }>
-          </input>
+        <h2 className="titulo">Registrarse</h2>
 
-          <label className='labels' htmlFor='password'>
-          contraseña
-          </label>
-          <input className='controls' type="password" id='password' name='password' value={password} onChange={
-            (e) => setPassword(e.target.value)
-          }>
-          </input>
-
-          <label className='labels' htmlFor='password2'>
-          confirmar contraseña
-          </label>
-          <input className='controls' type="password" id='password2' name='password2' value={password2} onChange={
-            (e) => setPassword2(e.target.value)
-          }>
-          </input>
-
-
-          <label className='labels' htmlFor='email'>
-            email
-          </label>
-          <input className='controls' type="text" id='email' name='email' value={email} onChange={
-            (e) => setEmail(e.target.value)
-          }>
-          </input>
-
-
-          <label className='labels' htmlFor='first_name'>
-            Nombre(s)
-          </label>
-          <input className='controls' type="text" id='first_name' name='first_name' value={first_name} onChange={
-            (e) => setFirst_name(e.target.value)
-          }>
-          </input>
-
-
-          <label className='labels' htmlFor='last_name'>
-            Apellidos
-          </label>
-          <input className='controls' type="text" id='last_name' name='last_name' value={last_name} onChange={
-            (e) => setLast_name(e.target.value)
-          }>
-          </input>
-          <button className='buttons' onClick={consumir_register}>Registrarse</button>
-
+        <div class="field">
+          <label class="label">Usuario</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="user" value={username} onChange={
+              (e) => setUsername(e.target.value)} />
+          </div>
         </div>
+
+        <div class="field">
+          <label class="label">contraseña</label>
+          <div class="control">
+            <input class="input" type="password" placeholder="user" value={password} onChange={
+              (e) => setPassword(e.target.value)
+            } />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">confirmar contraseña</label>
+          <div class="control">
+            <input class="input" type="password" placeholder="user" value={password2} onChange={
+              (e) => setPassword2(e.target.value)} />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">email</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="example@domain.ex" value={email} onChange={
+              (e) => setEmail(e.target.value)} />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Nombre(s)</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Ciro Eduardo" value={first_name} onChange={
+              (e) => setFirst_name(e.target.value)} />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Apellidos</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Gomez Diaz" value={last_name} onChange={
+              (e) => setLast_name(e.target.value)} />
+          </div>
+        </div>
+
+        <div class="field">
+          <p class="control">
+            <button class="button is-success" onClick={consumir_register}>
+              Registrarse
+            </button>
+          </p>
+        </div>
+        
       </form>
     </div>
 

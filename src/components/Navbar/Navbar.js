@@ -7,7 +7,7 @@ function Navbar() {
     
     return(
     <header>
-        <img className="logo-nav" src={ares} alt="logo" width="60px"></img>
+        {/* <img className="logo-nav" src={ares} alt="logo" width="60px"></img> */}
 
         <nav>
             <ul className="nav_links">

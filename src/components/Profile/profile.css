@@ -1,5 +1,33 @@
 
+/* 
+.contenedor{
+    margin-left: 30em;
+    margin-right: 30em;
+    margin-top: 1em;
+}
+.is-vcentered{
+    background-color: aqua;
+}
 
+.is-8{
+    background-color: azure;
+}
+.column{
+    background-color: bisque;
+    margin: 0;
+    padding: 0;
+    border-right: 1px solid;
+    
+
+}
+.is-primary{
+    background-color: blue;
+}
+.box{
+    margin: 0;
+    border-radius: 0;
+} */
+/* 
 .contenedor-datos{
     background-color: rgba(31, 80, 214, 0.8);
     width: fit-content;
@@ -34,4 +62,65 @@ button{
 .cta{
     padding-top: 30px;
     padding-bottom: 10px;
+} */
+.lb{
+    color: black;
+}
+
+.lista-data li{
+    color: black;    
+}
+#box-general{
+  
+   margin: 1%;
+}
+
+#columnas{
+    justify-content: center;
+    align-items: center;
+}
+#profile-data-box{
+    height: 256px;
+}
+
+#profile-picture-box{
+    height: 12em;
+    display: flex;
+    
+}
+
+#profile-pic{
+    width: 256px;
+    height: 256px;
+    border-radius: 25em ;
+}
+
+#profile-picture{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+#profile-buttons{
+    align-items: center;
+    justify-content: center; 
+ 
+}
+
+#profile-buttons-box{
+    height: 256px;
+
+}
+
+#profile-buttons-box{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+
+}
+
+.botones-perfil li{
+    margin-bottom: 60px;
+    margin-top: 60px;
+
 }

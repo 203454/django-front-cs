@@ -5,16 +5,18 @@
 
     width: 400px;
     /* height: 340px; */
-    background: rgba(38, 58, 66, 0.8);
+    background: rgba(15, 218, 201, 0.8);
     margin: auto;
     margin-top: 30px;
     padding: 20px 30px;
     color: rgb(255, 255, 255);
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
     
 
   }
-  
+/*   
   .form-register h2 {
     margin: 0;
     text-align: center;
@@ -23,21 +25,21 @@
     border-bottom: 1px solid;
     font-size: 20px;
     align-items: center;
-  }
-  
+  } */
+/*   
   .controls {  
     border-radius: 12px;
     width: 22em;
     height: 2.5em;
-    border: 1px solid #000000;
+    border: 1px solid #ffffff;
     margin-bottom: 7%;
     padding: 11px 10px;
     background: #ffffff;
     font-size: 14px;
     font-weight: bold;
   }
-  
-  .buttons {
+   */
+  /* .buttons {
     padding: 12px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -48,24 +50,28 @@
     border-radius: 10px;
     font-family:'Roboto';
     
-}
+} */
 
 /* ESTILOS PARA LETRAS */
 
 .titulo{
     font-family: Fjalla One;
+    font-size: 25px;
+    color: black;
 }
 
- .labels{
+.label{
+  font-family: Fredoka;
+}
+/* 
+ .label{
      align-content: center;
      margin-bottom: 10px;
      font-family: Fredoka;
+ } */
+
+ .control{
+   display: flex;
+   justify-content: center;
  }
   
-  
-.campos-cont{
-    display: flex;
-    flex-direction:column;
-    justify-content: center;   
-    align-items: center;
-}

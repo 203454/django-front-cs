@@ -3,15 +3,10 @@
 
 
 .form-profile {
-    width: 1000px;
-    background: rgba(31, 80, 214, 0.8);
-    margin: auto;
-    margin-top: 4%;
-    padding: 20px 30px;
-    color: rgb(255, 255, 255);  
-    border-radius: 8px;
+
     display: flex;
-    
+    justify-content: center;
+    align-items:center;
   }
 /* 
   .labels{
@@ -42,8 +37,6 @@
 }
 
 
-
-
 .controls {  
     border-radius: 12px;
     width: 22em;
@@ -56,14 +49,23 @@
     font-weight: bold;
   }
   
-  
-.inputfile-2 + label {
-    color: #c39f77;
-    border: 2px solid currentColor;
+.box{
+  margin: 1%;
 }
 
-.inputfile-2:focus + label,
-.inputfile-2.has-focus + label,
-.inputfile-2 + label:hover {
-    color: #9f8465;
+
+.contenedor-imagen{
+  margin-bottom:1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+#div_file{
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction:row ;
+}
+

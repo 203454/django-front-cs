@@ -65,9 +65,9 @@ export default function EditProfile(props) {
       });
   }
 
-  const delete_image = (e) =>{
+  const delete_image = (e) => {
 
-    axios.delete("http://localhost:8000/api/v1/profile/dataProfile/"+ usuarioImageData.id, {
+    axios.delete("http://localhost:8000/api/v1/profile/dataProfile/" + usuarioImageData.id, {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': 'Token ' + token,
@@ -108,6 +108,8 @@ export default function EditProfile(props) {
 
   return (
 
+
+
     <div className='cont-form-profile'>
 
       <form className='form-profile'>
@@ -146,26 +148,40 @@ export default function EditProfile(props) {
           }>
           </input>
 
-          <button onClick={consumir_updateUser}>Actualizar datos</button>
+          <button class="button is-warning" onClick={consumir_updateUser}>Actualizar datos</button>
         </div>
 
         <div className='profile-cont'>
-          <img src={usuarioImageData.img_profile != null ? usuarioImageData.img_profile : image_default} alt="" width="280px" height="300px"></img>
+          <div className='contenedor-imagen'>
+            <img className="profile-image" class="is-rounded" id="profile-pic" src={usuarioImageData.img_profile != null ? usuarioImageData.img_profile : image_default} width="300px" height="300px" ></img>
+          </div>
+
+
           {usuarioImageData.img_profile != null ?
-            <div id="div_file">
-              <label id="largeFile" for="file">
-                <input type="file" id="img" />
-                <button onClick={change_image}>Cambiar foto de perfil</button>
-              </label>
-              <label id="largeFile" for="file">
-              <button onClick={delete_image}>Borrar foto de perfil</button>
-              </label>
+            <div className='contenedor_funtions'>
+
+              <div id="div_file">
+
+                <label id="largeFile" for="file">
+                  <input type="file" id="img" />
+                  <button class="button is-warning" onClick={change_image}>Cambiar foto de perfil</button>
+                </label>
+
+              </div>
+
+              <div id='div_delete' className='boton_delete_pic'>
+                <label id="largeFile" for="file">
+                  <button class="button is-danger" id='consumir_delete_img' onClick={delete_image}>Borrar foto de perfil</button>
+                </label>
+              </div>
+
+
             </div>
             :
             <div id="div_file">
               <label id="largeFile" for="file">
                 <input type="file" id="img" />
-                <button onClick={uploadFile}>Subir una foto</button>
+                <button className='button is-primary' onClick={uploadFile}>Subir una foto</button>
               </label>
             </div>
 

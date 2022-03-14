@@ -44,12 +44,12 @@
 
 
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Fredoka:wght@300;400&family=Roboto:wght@500&display=swap');
-
+/* 
 
 .form-login {
 
     width: 400px;
-    /* height: 340px; */
+    height: 340px; coment<r
     background: rgba(38, 58, 66, 0.8);
     margin: auto;
     margin-top: 100px;
@@ -58,18 +58,18 @@
     border-radius: 10px;
     
 
-  }
-  
+  } */
+/*   
   .form-login h2 {
     margin: 0;
     text-align: center;
     height: 40px;
     margin-bottom: 30px;
-    border-bottom: 1px solid;
+     border-bottom: 1pxsolid;
     font-size: 20px;
     align-items: center;
-  }
-  
+  } */
+/*   
   .controls {  
     border-radius: 12px;
     width: 22em;
@@ -93,10 +93,10 @@
     border-radius: 10px;
     font-family:'Roboto';
     
-}
+} */
 
 /* ESTILOS PARA LETRAS */
-
+/* 
 .titulo{
     font-family: Fjalla One;
 }
@@ -113,4 +113,57 @@
     flex-direction:column;
     justify-content: center;   
     align-items: center;
+} */
+
+.form-logisn{
+    margin-top: 10em;
+    margin-left: 30em;
+    margin-right: 30em;
+    /* background-color: aqua; */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.form-login {
+
+    width: 400px;
+    /* height: 340px; */
+    background: rgba(15, 218, 201, 0.8);
+    margin: auto;
+    margin-top: 30px;
+    padding: 20px 30px;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    display: flex;  
+    flex-direction: column;
+    
+
+  }
+.field{
+    margin-top: 1em;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+        
+
+    
+}
+
+.label{
+    width: auto;
+}
+.input{
+    width: 30em;
+}
+.question-login{
+    margin: 2em;
+}
+
+.is-primary{
+    margin-top: .5em;
+    margin-bottom: 3em;
 }

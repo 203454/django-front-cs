@@ -1,7 +1,9 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 // import { Link, Outlet, useNavigate } from "react-router-dom";
 import './login.css';
+import '../bulma.css'
 
 function Login() {
 
@@ -29,49 +31,50 @@ function Login() {
         localStorage.setItem('token', response.data['token']);
         localStorage.setItem('user_id', response.data['user_id']);
         alert("Inicio de sesion correcto")
-      
-        
+
+
       })
       .catch((error) => {
         alert("DATOS INCORRECTOS")
         console.log(error.response.data.password[0]);
         console.log(error.response.data.username[0]);
-        
+
       });
   };
 
 
 
   return (
-    <div className='contenedor'>
+    <div className='contenedor-login'>
 
       <form className='form-login'>
-        <div className='campos-cont'>
-          <h2 className='titulo'>Iniciar sesion</h2>
-          <label className='labels' htmlFor='usuario'>
-            Usuario
-          </label>
-          <input className='controls' type="text" id='usuario' name='usuario' value={nombre} onChange={
-            (e) => setNombre(e.target.value)
-          }>
-          </input>
+        <h2 className='titulo'>Iniciar sesion</h2>
 
-          <label className='labels' htmlFor='password'>
-            Contraseña
-          </label>
-
-
-          <input className='controls' type="text" id='password' name='password' value={password} onChange={
-            (e) => setPassword(e.target.value)
-          }>
-          </input>
-
-          <div className=''>
-            <button className='buttons' onClick={consumir_login}>Iniciar sesion</button>
+        <div class="field">
+          <label class="label">Usuario</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="user" value={nombre} onChange={
+              (e) => setNombre(e.target.value)} />
           </div>
-
-          <p>No tienes una cuenta? Crea una</p>
         </div>
+
+        <div class="field">
+          <label class="label">Constraseña</label>
+          <div class="control">
+            <input class="input" type="password" placeholder="*******" value={password} onChange={
+              (e) => setPassword(e.target.value)} />
+          </div>
+        </div>
+
+        {/* <div className='campos-cont'> */}
+
+        <p className='question-login'>No tienes una cuenta? <NavLink to='/register'> Crea una</NavLink> </p>
+        <div class='control'>
+          <button className='button is-primary' onClick={consumir_login}>Iniciar sesion</button>
+        </div>
+        {/* </div> */}
+
+
       </form>
     </div>
 

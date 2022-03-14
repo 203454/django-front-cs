@@ -7,13 +7,13 @@ import { useNavigate, } from "react-router-dom";
 import EditProfile from './../EditProfile/EditProfile'
 
 function Profile() {
+
   const navigate = useNavigate();
 
   const logOut = () => {
     localStorage.setItem('user_id', 0)
     navigate('/Login');
   };
-
 
   const defaultDataUser = {
     id: 'id no cargado',
@@ -29,18 +29,9 @@ function Profile() {
     user_id: 'relacion con usuario no cargada'
   }
 
-  const defaultDataUserEdit = {
-    username: null,
-    first_name: 'first_name no cargado',
-    last_name: 'last_name no cargado',
-    email: 'email no cargado',
-  }
-
-
   const defaultEditProfile = {
     edit: false
   }
-
 
   let token = localStorage.getItem('token');
 
@@ -48,12 +39,7 @@ function Profile() {
   const [usuarioImageData, setUsuarioImageData] = useState(defaultProfile)
   const [editProfile, setEditProfile] = useState(defaultEditProfile)
 
-
-  const [editProfileData, setEditProfileData] = useState(defaultDataUserEdit)
-
-
-
-
+  //Esta conexion permite obtener los datos de un usuario 
   useEffect(() => {
     axios
       .get("http://localhost:8000/api/v1/profile/data/user/detail/" + localStorage.getItem('user_id'),
@@ -100,7 +86,7 @@ function Profile() {
       });
   };
 
-
+  //Esta conexion permite obtener la imgen de perfil del usuario
   useEffect(() => {
     axios
       .get("http://localhost:8000/api/v1/profile/data/user/detail/relation/" + localStorage.getItem('user_id'), {
@@ -109,8 +95,6 @@ function Profile() {
         },
       })
       .then((response) => {
-        // console.log("response.data.data: " + response.data.data);
-
         if (response.data.data != 'No hay datos') {
 
           const gottentProfile = {
@@ -118,10 +102,7 @@ function Profile() {
             user_id: response.data.data.user_id,
             img_profile: 'http://localhost:8000' + response.data.data.img_profile,
           }
-
           setUsuarioImageData(gottentProfile)
-          // console.log("Respuesta de la imagen relacion: " + response.data.data.id)
-          // console.log("Respuesta del objeto perfil creado: " + gottentProfile.img_profile)
         } else {
 
           const gottentProfileError = {
@@ -129,53 +110,74 @@ function Profile() {
             user_id: null,
             img_profile: null,
           }
-
           setUsuarioImageData(gottentProfileError)
-          //   console.log("OBJETO IMAGEN ERROR: " + gottentProfileError)
-          // }
 
         }
       })
       .catch((error) => {
         console.log(error)
       });
-
   }, [setUsuarioImageData])
 
 
   return (
     editProfile.edit == false ?
 
-      <div className="contenedor">
-        <div className="contenedor-datos">
-        <img className="profile-image" src={usuarioImageData.img_profile != null ? usuarioImageData.img_profile : image_default} width="300px" height="300px" ></img>
-          <ul>
-            <li><label className="lb"> Userid: </label> {usuarioPersonalData.id}</li>
-            <li><label className="lb"> Username: </label>{usuarioPersonalData.username}</li>
-            <li><label className="lb"> Email: </label>{usuarioPersonalData.email}</li>
-            <li><label className="lb"> First_name: </label>{usuarioPersonalData.first_name}</li>
-            <li><label className="lb"> Last_name: </label>{usuarioPersonalData.last_name}</li>
-            <li><a className="cta" href="#"><button onClick={logOut} > Cerrar sesion</button></a></li>
-            <li><button onClick={
-              (editar) => {
-                editar = {
-                  edit: true
-                }
-                setEditProfile(editar)
-              }
-            }>Editar perfil
-            </button></li>
-          </ul>
+      <div className="box" id="box-general">
+
+
+        <div class="columns" id="columnas">
+
+          <div class="column is-one-fifth" id="profile-picture">
+
+            <img className="profile-image" class="is-rounded" id="profile-pic" src={usuarioImageData.img_profile != null ? usuarioImageData.img_profile : image_default} width="300px" height="300px" ></img>
+
+          </div>
+
+          <div class="column is-three-fifths" id="profile-data">
+            <div class="box" id="profile-data-box">
+              <p>Informacion del usuario:</p>
+              <br></br>
+              {/* <img className="profile-image" src={usuarioImageData.img_profile != null ? usuarioImageData.img_profile : image_default} width="300px" height="300px" ></img> */}
+              <ul className="lista-data">
+
+                <li><label className="lb"> Username: </label>{usuarioPersonalData.username}</li>
+                <li><label className="lb"> Email: </label>{usuarioPersonalData.email}</li>
+                <li><label className="lb"> Nombre(s): </label>{usuarioPersonalData.first_name}</li>
+                <li><label className="lb"> Apellidos:  </label>{usuarioPersonalData.last_name}</li>
+
+
+              </ul>
+            </div>
+          </div>
+
+          <div class="column" id="profile-buttons">
+            <div class="box" id="profile-buttons-box">  
+              <ul className="botones-perfil">
+                <li><button className="button is-warning" onClick={
+                  (editar) => {
+                    editar = {
+                      edit: true
+                    }
+                    setEditProfile(editar)
+                  }
+                }>Editar perfil
+                </button>
+                </li>
+                <li><a href="#"><button className="button is-danger" onClick={logOut} > Cerrar sesion</button></a></li>
+              </ul>
+            </div>
+          </div>
+
         </div>
+
       </div>
       :
 
-      <div className="">
-       
-
+      <div className="box">
         <EditProfile usuarioPersonalData={usuarioPersonalData} usuarioImageData={usuarioImageData}></EditProfile>
 
-        <button onClick={
+        <button class="button is-primary" onClick={
           (editar) => {
             editar = {
               edit: false
@@ -184,7 +186,7 @@ function Profile() {
           }
         }>
           Cancelar
-        </button> 
+        </button>
       </div>
 
   );
